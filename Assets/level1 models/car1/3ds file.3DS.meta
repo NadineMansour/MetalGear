@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 2515d0a55bc35294bb6459608772c8d2
+timeCreated: 1480811398
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BodyDoorLe
+    100004: BodyDoorR0
+    100006: BodyDoorRe
+    100008: BodyDoorRi
+    100010: BodySideWi
+    100012: BodyTiger
+    100014: Glasses
+    100016: LightInner
+    100018: Lights
+    100020: MG1
+    100022: MG2
+    100024: MG3
+    100026: MG4
+    100028: MG5
+    100030: MG7
+    100032: Mirror1
+    100034: Mirror2
+    100036: R1
+    100038: R2
+    100040: R3
+    100042: R4
+    100044: Roof Turre
+    100046: W1
+    100048: W2
+    100050: W3
+    100052: W4
+    400000: //RootNode
+    400002: BodyDoorLe
+    400004: BodyDoorR0
+    400006: BodyDoorRe
+    400008: BodyDoorRi
+    400010: BodySideWi
+    400012: BodyTiger
+    400014: Glasses
+    400016: LightInner
+    400018: Lights
+    400020: MG1
+    400022: MG2
+    400024: MG3
+    400026: MG4
+    400028: MG5
+    400030: MG7
+    400032: Mirror1
+    400034: Mirror2
+    400036: R1
+    400038: R2
+    400040: R3
+    400042: R4
+    400044: Roof Turre
+    400046: W1
+    400048: W2
+    400050: W3
+    400052: W4
+    2300000: BodyDoorLe
+    2300002: BodyDoorR0
+    2300004: BodyDoorRe
+    2300006: BodyDoorRi
+    2300008: BodySideWi
+    2300010: BodyTiger
+    2300012: Glasses
+    2300014: LightInner
+    2300016: Lights
+    2300018: MG1
+    2300020: MG2
+    2300022: MG3
+    2300024: MG4
+    2300026: MG5
+    2300028: MG7
+    2300030: Mirror1
+    2300032: Mirror2
+    2300034: R1
+    2300036: R2
+    2300038: R3
+    2300040: R4
+    2300042: Roof Turre
+    2300044: W1
+    2300046: W2
+    2300048: W3
+    2300050: W4
+    3300000: BodyDoorLe
+    3300002: BodyDoorR0
+    3300004: BodyDoorRe
+    3300006: BodyDoorRi
+    3300008: BodySideWi
+    3300010: BodyTiger
+    3300012: Glasses
+    3300014: LightInner
+    3300016: Lights
+    3300018: MG1
+    3300020: MG2
+    3300022: MG3
+    3300024: MG4
+    3300026: MG5
+    3300028: MG7
+    3300030: Mirror1
+    3300032: Mirror2
+    3300034: R1
+    3300036: R2
+    3300038: R3
+    3300040: R4
+    3300042: Roof Turre
+    3300044: W1
+    3300046: W2
+    3300048: W3
+    3300050: W4
+    4300000: BodyTiger
+    4300002: BodyDoorRi
+    4300004: BodyDoorLe
+    4300006: W1
+    4300008: R1
+    4300010: W2
+    4300012: W3
+    4300014: R3
+    4300016: W4
+    4300018: R2
+    4300020: R4
+    4300022: Roof Turre
+    4300024: LightInner
+    4300026: BodyDoorRe
+    4300028: BodyDoorR0
+    4300030: BodySideWi
+    4300032: Mirror2
+    4300034: Mirror1
+    4300036: Glasses
+    4300038: Lights
+    4300040: MG1
+    4300042: MG2
+    4300044: MG3
+    4300046: MG4
+    4300048: MG5
+    4300050: MG7
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
