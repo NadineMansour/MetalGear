@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject pistol, rifle;
 	private float speed = 3.0f;
 	private float crawlDirection = 0.0f;
-	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle;
+	private float turningDirection = 0.0f;
+	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn;
 	
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 		walkForward = false;
 		walkBackward = false;
 		crawlIdle = false;
+		turn = false;
 		crawlDirection = 0.0f;
 		jump = false;
 
@@ -41,14 +43,18 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("d")){
 			//rotate clockwise
 			transform.Rotate(Vector3.up * 50 * Time.deltaTime);
-			walkForward = true;
+			//walkForward = true;
+			turn = true;
+			turningDirection = 1.0f;
 		}
 		
 
 		if (Input.GetKey("a")){
 			//rotate anti-clockwise
 			transform.Rotate(Vector3.up * -50 * Time.deltaTime);
-			walkForward = true;
+			//walkForward = true;
+			turn = true;
+			turningDirection = -1.0f;
 		}
 
 		if (Input.GetKey("g")){
@@ -63,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 				idleGun = false;
 		}
 
-		if (Input.GetKey("left shift")){
+		if (Input.GetKey("c")){
 			crawlIdle = true;
 			//transform.Translate (0, 0, Time.deltaTime);
 		}
@@ -74,13 +80,17 @@ public class PlayerController : MonoBehaviour {
 		}
 		
 		pistol.active = idleGun;
+		pistol.transform.parent.gameObject.active = idleGun;
 		rifle.active = idleRifle;
+		rifle.transform.parent.gameObject.active = idleRifle;
 		animator.SetBool("walkForward", walkForward );
 		animator.SetBool("idleGun", idleGun );
 		animator.SetBool("idleRifle", idleRifle );
 		animator.SetBool("crawlIdle", crawlIdle );
 		animator.SetBool("jump", jump);
+		animator.SetBool("turn", turn );
 		animator.SetFloat("crawlingDirection", crawlDirection);
+		animator.SetFloat("turningDirection", turningDirection);
 		if(walkBackward){
 			animator.SetFloat("walkingDirection", -1.0f );
 		} else{

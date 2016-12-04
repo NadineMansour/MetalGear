@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BulletsController.cs" />
      <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\Scripts\CameraScripts\AbstractTargetFollower.cs" />
      <Compile Include="Assets\Scripts\CameraScripts\AutoCam.cs" />
