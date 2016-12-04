@@ -46,7 +46,29 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\AbstractTargetFollower.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\AutoCam.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\FreeLookCam.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\HandHeldCam.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\LookatTarget.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\PivotBasedCameraRig.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\ProtectCameraFromWallClip.cs" />
+     <Compile Include="Assets\Scripts\CameraScripts\TargetFieldOfView.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\ButtonHandler.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\Joystick.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\MobileControlRig.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\TiltInput.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\TouchPad.cs" />
+     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\VirtualInput.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <None Include="Assets\Models\pistol\archibase.net.txt" />
+     <None Include="Assets\Models\rifle\archibase.net.txt" />
+     <None Include="Assets\Scripts\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -4,8 +4,10 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	private Animator animator;
+	public GameObject pistol, rifle;
 	private float speed = 3.0f;
-	private bool walkForward, walkBackward, suspendMove, jump, crawlForward;
+	private float crawlDirection = 0.0f;
+	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle;
 	
 	// Use this for initialization
 	void Start () {
@@ -17,13 +19,15 @@ public class PlayerController : MonoBehaviour {
 			
 		walkForward = false;
 		walkBackward = false;
-		crawlForward = false;
+		crawlIdle = false;
+		crawlDirection = 0.0f;
 		jump = false;
 
 		if (Input.GetKey("w")){
 			//Walk forward
 			walkForward = true;
 			transform.Translate (0, 0, Input.GetAxis("Vertical")*2*Time.deltaTime);
+			crawlDirection = 1.0f;
 		}
 		
 		if (Input.GetKey("s")){
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour {
 			walkForward = true;
 			walkBackward = true;
 			transform.Translate (0, 0, Input.GetAxis("Vertical")*2*Time.deltaTime);
+			crawlDirection = -1.0f;
 		}
 
 		if (Input.GetKey("d")){
@@ -46,20 +51,36 @@ public class PlayerController : MonoBehaviour {
 			walkForward = true;
 		}
 
+		if (Input.GetKey("g")){
+			idleGun = !idleGun;
+			if(idleRifle)
+				idleRifle = false;
+		}
+
+		if (Input.GetKey("r")){
+			idleRifle = !idleRifle;
+			if(idleGun)
+				idleGun = false;
+		}
+
 		if (Input.GetKey("left shift")){
-			crawlForward = true;
-			transform.Translate (0, 0, Time.deltaTime);
+			crawlIdle = true;
+			//transform.Translate (0, 0, Time.deltaTime);
 		}
 
 		if (Input.GetKey("space")){
 			//jump
 			jump = true;
 		}
-	
+		
+		pistol.active = idleGun;
+		rifle.active = idleRifle;
 		animator.SetBool("walkForward", walkForward );
-		animator.SetBool("crawlForward", crawlForward );
+		animator.SetBool("idleGun", idleGun );
+		animator.SetBool("idleRifle", idleRifle );
+		animator.SetBool("crawlIdle", crawlIdle );
 		animator.SetBool("jump", jump);
-
+		animator.SetFloat("crawlingDirection", crawlDirection);
 		if(walkBackward){
 			animator.SetFloat("walkingDirection", -1.0f );
 		} else{
