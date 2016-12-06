@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	private float speed = 3.0f;
 	private float crawlDirection = 0.0f;
 	private float turningDirection = 0.0f;
-	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn;
+	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn,jumpForward;
 	
 	// Use this for initialization
 	void Start () {
@@ -24,11 +24,13 @@ public class PlayerController : MonoBehaviour {
 		turn = false;
 		crawlDirection = 0.0f;
 		jump = false;
+		jumpForward = false;
 
 		if (Input.GetKey("w")){
 			//Walk forward
 			walkForward = true;
-			transform.Translate (0, 0, Input.GetAxis("Vertical")*2*Time.deltaTime);
+			jumpForward = true;
+			transform.Translate (0, 0, Input.GetAxis("Vertical")*4*Time.deltaTime);
 			crawlDirection = 1.0f;
 		}
 		
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 			//Walk backward
 			walkForward = true;
 			walkBackward = true;
-			transform.Translate (0, 0, Input.GetAxis("Vertical")*2*Time.deltaTime);
+			transform.Translate (0, 0, Input.GetAxis("Vertical")*4*Time.deltaTime);
 			crawlDirection = -1.0f;
 		}
 
@@ -87,7 +89,16 @@ public class PlayerController : MonoBehaviour {
 		animator.SetBool("idleGun", idleGun );
 		animator.SetBool("idleRifle", idleRifle );
 		animator.SetBool("crawlIdle", crawlIdle );
-		animator.SetBool("jump", jump);
+		if(jump && jumpForward){
+			animator.SetBool("jumpForward", jumpForward);
+			animator.SetBool("jump", false);
+		} else if (jump){
+			animator.SetBool("jump", jump);
+			animator.SetBool("jumpForward", false);
+		} else {
+			animator.SetBool("jumpForward", false);
+			animator.SetBool("jump", false);
+		}
 		animator.SetBool("turn", turn );
 		animator.SetFloat("crawlingDirection", crawlDirection);
 		animator.SetFloat("turningDirection", turningDirection);
