@@ -17,7 +17,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			
+		
+		bool crouching  = false;
 		walkForward = false;
 		walkBackward = false;
 		crawlIdle = false;
@@ -25,28 +26,39 @@ public class PlayerController : MonoBehaviour {
 		crawlDirection = 0.0f;
 		jump = false;
 		jumpForward = false;
+		speed = 4.0f;
+
+		if (Input.GetKey("c")){
+			crawlIdle = true;
+			crouching = true;
+			if(idleRifle)
+				speed = 1.5f;
+			else
+				speed = 2.0f;
+		}
 
 		if (Input.GetKey("w")){
 			//Walk forward
 			walkForward = true;
 			jumpForward = true;
-			transform.Translate (0, 0, Input.GetAxis("Vertical")*4*Time.deltaTime);
+			transform.Translate (0, 0, Input.GetAxis("Vertical")*speed*Time.deltaTime);
 			crawlDirection = 1.0f;
 		}
 		
 		if (Input.GetKey("s")){
 			//Walk backward
-			walkForward = true;
 			walkBackward = true;
-			transform.Translate (0, 0, Input.GetAxis("Vertical")*4*Time.deltaTime);
+			transform.Translate (0, 0, Input.GetAxis("Vertical")*speed*Time.deltaTime);
 			crawlDirection = -1.0f;
 		}
 
 		if (Input.GetKey("d")){
 			//rotate clockwise
 			transform.Rotate(Vector3.up * 50 * Time.deltaTime);
-			//walkForward = true;
-			turn = true;
+			if(crouching || idleGun)
+				walkForward = true;
+			crawlDirection = 1.0f;
+			turn = !walkForward;
 			turningDirection = 1.0f;
 		}
 		
@@ -54,8 +66,10 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("a")){
 			//rotate anti-clockwise
 			transform.Rotate(Vector3.up * -50 * Time.deltaTime);
-			//walkForward = true;
-			turn = true;
+			if(crouching)
+				walkForward = true;
+			crawlDirection = 1.0f;
+			turn = !walkForward;
 			turningDirection = -1.0f;
 		}
 
@@ -71,16 +85,14 @@ public class PlayerController : MonoBehaviour {
 				idleGun = false;
 		}
 
-		if (Input.GetKey("c")){
-			crawlIdle = true;
-			//transform.Translate (0, 0, Time.deltaTime);
-		}
-
 		if (Input.GetKey("space")){
 			//jump
 			jump = true;
 		}
 		
+		if(crouching){
+			idleGun = false;
+		} 
 		pistol.active = idleGun;
 		pistol.transform.parent.gameObject.active = idleGun;
 		rifle.active = idleRifle;
