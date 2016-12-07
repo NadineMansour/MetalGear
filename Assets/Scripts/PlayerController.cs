@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour {
 		
 		if (Input.GetKey("s")){
 			//Walk backward
-			walkForward = true;
 			walkBackward = true;
 			transform.Translate (0, 0, Input.GetAxis("Vertical")*speed*Time.deltaTime);
 			crawlDirection = -1.0f;
@@ -56,9 +55,10 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("d")){
 			//rotate clockwise
 			transform.Rotate(Vector3.up * 50 * Time.deltaTime);
-			walkForward = crouching;
+			if(crouching || idleGun)
+				walkForward = true;
 			crawlDirection = 1.0f;
-			turn = true;
+			turn = !walkForward;
 			turningDirection = 1.0f;
 		}
 		
@@ -66,9 +66,10 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey("a")){
 			//rotate anti-clockwise
 			transform.Rotate(Vector3.up * -50 * Time.deltaTime);
-			walkForward = crouching;
+			if(crouching)
+				walkForward = true;
 			crawlDirection = 1.0f;
-			turn = true;
+			turn = !walkForward;
 			turningDirection = -1.0f;
 		}
 
