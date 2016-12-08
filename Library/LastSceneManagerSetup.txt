@@ -1,4 +1,5 @@
 sceneSetups:
-- path: Assets/Level1.unity
+- path: D:/Engineering/semester 9/advanced media lab/projects/final project/clone
+    1/MetalGear/Assets/scenes/Level2.unity
   isLoaded: 1
   isActive: 1
