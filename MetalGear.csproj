@@ -96,9 +96,13 @@
     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\TiltInput.cs" />
     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Scripts\CrossPlatformInput\Scripts\VirtualInput.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\UIController.cs" />
+=======
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+>>>>>>> 85eb2cfbce630beffdc71d6d2ac695597aca97f5
     <Compile Include="Assets\level1 models\Container Barrel\Standard Assets\Image Effects (Pro Only)\BlurEffect.cs" />
     <Compile Include="Assets\level1 models\Container Barrel\Standard Assets\Image Effects (Pro Only)\ColorCorrectionEffect.cs" />
     <Compile Include="Assets\level1 models\Container Barrel\Standard Assets\Image Effects (Pro Only)\ContrastStretchEffect.cs" />
