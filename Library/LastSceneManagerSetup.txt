@@ -1,9 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/scenes/level1 enemies.unity
-=======
-- path: D:/Engineering/semester 9/advanced media lab/projects/final project/clone
-    1/MetalGear/Assets/scenes/Level2.unity
->>>>>>> 85eb2cfbce630beffdc71d6d2ac695597aca97f5
-  isLoaded: 1
-  isActive: 1
