@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour {
 
 	private List<string> collected;
 	private List<GameObject> buttons;
+	private bool showCollectables;
 
 	private int index = 0;
 	private int max;
@@ -19,6 +20,7 @@ public class UIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		max = 0;
+		showCollectables = false;
 		collected = new List<string>();
 		buttons = new List<GameObject>();
 	}
@@ -60,6 +62,12 @@ public class UIController : MonoBehaviour {
  		button.transform.localPosition = pos;
 		button.GetComponent<Button>().GetComponentsInChildren<Text>()[0].text = tag;
 		buttons.Add(button);
+	}
+
+	public void displayCollectables(){
+		showCollectables = !showCollectables;
+		Debug.Log(showCollectables);
+		collectablesPanel.gameObject.SetActive(showCollectables);
 	}
 
 }

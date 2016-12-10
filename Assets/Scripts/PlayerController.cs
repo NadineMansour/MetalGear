@@ -93,6 +93,10 @@ public class PlayerController : MonoBehaviour {
 			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Key");
 		}
 
+		if (Input.GetKeyUp("m")){
+			((UIController)uiManager.GetComponent(typeof(UIController))).displayCollectables();
+		}
+
 		if (Input.GetKey("space")){
 			//jump
 			jump = true;

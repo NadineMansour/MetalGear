@@ -709,10 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbf5fb211bb047fea280d227ad1dd27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   collectablesPanel: {fileID: 446859972}
   prefabButton: {fileID: 1796273829944758, guid: e1873c56d2b2742d98bda664e0c9916e,
     type: 2}
