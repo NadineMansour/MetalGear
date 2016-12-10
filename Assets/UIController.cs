@@ -4,35 +4,41 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
-	public List<Button> buttons;
+
+	public Transform collectablesPanel;
+	public GameObject prefabButton;
+
+	private List<string> collected;
+	private List<GameObject> buttons;
 
 	private int index = 0;
 	private int max;
 
+	private bool activeGun, activeRifle, activeKey;
+
 	// Use this for initialization
 	void Start () {
-		max = buttons.Count;
+		max = 0;
+		collected = new List<string>();
+		buttons = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (Input.GetKeyUp("left")){
 			// left
 			index --;
 			if(index == -1)
 				index = max-1;
-			Debug.Log(index);
 		}
 		if (Input.GetKeyUp("right")){
 			// right
 			index ++;
 			if(index == max)
 				index = 0;
-			Debug.Log(index);
 		}
 		for (int i = 0; i<max; i++) {
-			Button currentButton = buttons[i];
+			GameObject currentButton = buttons[i];
 			if(i == index){
 				currentButton.GetComponent<Image>().color = Color.red;
 			} else{
@@ -40,4 +46,20 @@ public class UIController : MonoBehaviour {
 			}
 		}
 	}
+
+	public void collectItem(string tag){
+		collected.Add(tag);
+		max = collected.Count;
+		RectTransform panelRectTransform = collectablesPanel.GetComponent<RectTransform>();
+		panelRectTransform.sizeDelta = new Vector2((max*100)+40, panelRectTransform.sizeDelta.y);
+		GameObject button = (GameObject)Instantiate(prefabButton);
+		button.transform.SetParent(panelRectTransform, false);
+        button.transform.localScale = new Vector3(1, 1, 1);
+		Vector3 pos = button.transform.localPosition;
+ 		pos.x = (((max-1)*50));
+ 		button.transform.localPosition = pos;
+		button.GetComponent<Button>().GetComponentsInChildren<Text>()[0].text = tag;
+		buttons.Add(button);
+	}
+
 }

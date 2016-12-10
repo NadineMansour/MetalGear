@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator animator;
 	public GameObject pistol, rifle;
+	public GameObject uiManager;
 	private float speed = 3.0f;
 	private float crawlDirection = 0.0f;
 	private float turningDirection = 0.0f;
@@ -74,16 +75,22 @@ public class PlayerController : MonoBehaviour {
 			turningDirection = -1.0f;
 		}
 
-		if (Input.GetKey("g")){
+		if (Input.GetKeyUp("g")){
 			idleGun = !idleGun;
+			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Gun");
 			if(idleRifle)
 				idleRifle = false;
 		}
 
-		if (Input.GetKey("r")){
+		if (Input.GetKeyUp("r")){
 			idleRifle = !idleRifle;
+			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Rifle");
 			if(idleGun)
 				idleGun = false;
+		}
+
+		if (Input.GetKeyUp("k")){
+			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Key");
 		}
 
 		if (Input.GetKey("space")){
