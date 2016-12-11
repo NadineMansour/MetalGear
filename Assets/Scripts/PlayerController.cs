@@ -10,10 +10,16 @@ public class PlayerController : MonoBehaviour {
 	private float crawlDirection = 0.0f;
 	private float turningDirection = 0.0f;
 	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn,jumpForward;
+	private bool canCollectPistol, canCollectRifle;
+	private bool pistolCollected, rifleCollected;
 	
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
+		canCollectRifle = true;
+		canCollectPistol = true;
+		pistolCollected = false;
+		rifleCollected = false;
 	}
 	
 	// Update is called once per frame
@@ -76,17 +82,21 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp("g")){
-			idleGun = !idleGun;
-			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Gun");
-			if(idleRifle)
-				idleRifle = false;
+			if(canCollectPistol) {
+				pistolCollected = true;
+				((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Gun");
+				pistolSelected();
+				canCollectPistol = false;
+			}	
 		}
 
 		if (Input.GetKeyUp("r")){
-			idleRifle = !idleRifle;
-			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Rifle");
-			if(idleGun)
-				idleGun = false;
+			if(canCollectRifle) {
+				((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Rifle");
+				rifleCollected = true;
+				rifleSelected();
+				canCollectRifle = false;
+			}
 		}
 
 		if (Input.GetKeyUp("k")){
@@ -131,6 +141,41 @@ public class PlayerController : MonoBehaviour {
 		} else{
 			animator.SetFloat("walkingDirection", 1.0f );
 		}
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		Debug.Log("Collision");
+        if (collision.gameObject.tag == "Pistol"){
+			canCollectPistol = true;
+		}
+		if (collision.gameObject.tag == "Rifle"){
+			canCollectRifle = true;
+		}
+    } 
+	void OnCollisionExit(Collision collision) {
+        if (collision.gameObject.tag == "Rifle"){
+			canCollectRifle = false;
+		}
+    } 
+
+	public void setCanCollectRifle(bool can){
+		canCollectRifle = can;
+	}
+
+	public void setCanCollectPistol(bool can){
+		canCollectPistol = can;
+	}
+
+	public void rifleSelected(){
+		idleRifle = !idleRifle;
+		if(idleGun)
+			idleGun = false;
+	}
+
+	public void pistolSelected(){
+		idleGun = !idleGun;
+		if(idleRifle)
+			idleRifle = false;
 	}
 
 }

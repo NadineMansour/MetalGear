@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour {
 
 	public Transform collectablesPanel;
 	public GameObject prefabButton;
+	public GameObject player;
 
 	private List<string> collected;
 	private List<GameObject> buttons;
@@ -47,6 +48,15 @@ public class UIController : MonoBehaviour {
 				currentButton.GetComponent<Image>().color = Color.white;
 			}
 		}
+
+		if (Input.GetKeyUp(KeyCode.Return)){
+			if(collected[index].Equals("Gun")){
+				((PlayerController)player.GetComponent(typeof(PlayerController))).pistolSelected();
+			} else if(collected[index].Equals("Rifle")) {
+				((PlayerController)player.GetComponent(typeof(PlayerController))).rifleSelected();
+			}
+		}
+
 	}
 
 	public void collectItem(string tag){
