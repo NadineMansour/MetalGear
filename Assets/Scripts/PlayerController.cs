@@ -16,8 +16,8 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
-		canCollectRifle = true;
-		canCollectPistol = true;
+		canCollectRifle = false;
+		canCollectPistol = false;
 		pistolCollected = false;
 		rifleCollected = false;
 	}
@@ -142,21 +142,6 @@ public class PlayerController : MonoBehaviour {
 			animator.SetFloat("walkingDirection", 1.0f );
 		}
 	}
-
-	void OnCollisionEnter(Collision collision) {
-		Debug.Log("Collision");
-        if (collision.gameObject.tag == "Pistol"){
-			canCollectPistol = true;
-		}
-		if (collision.gameObject.tag == "Rifle"){
-			canCollectRifle = true;
-		}
-    } 
-	void OnCollisionExit(Collision collision) {
-        if (collision.gameObject.tag == "Rifle"){
-			canCollectRifle = false;
-		}
-    } 
 
 	public void setCanCollectRifle(bool can){
 		canCollectRifle = can;
