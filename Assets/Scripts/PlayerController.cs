@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn,jumpForward;
 	private bool canCollectPistol, canCollectRifle;
 	private bool pistolCollected, rifleCollected;
+	public GameObject collectablePistol, collectableRifle;
 	
 	// Use this for initialization
 	void Start () {
@@ -82,20 +83,23 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp("g")){
-			if(canCollectPistol) {
-				pistolCollected = true;
+			if(canCollectPistol && !pistolCollected) {
 				((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Gun");
-				pistolSelected();
+				pistolCollected = true;
+				//pistolSelected();
 				canCollectPistol = false;
+				Destroy(collectablePistol);
 			}	
 		}
 
 		if (Input.GetKeyUp("r")){
-			if(canCollectRifle) {
+			//Debug.Log(canCollectRifle);
+			if(canCollectRifle && !rifleCollected) {
 				((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Rifle");
 				rifleCollected = true;
-				rifleSelected();
+				//rifleSelected();
 				canCollectRifle = false;
+				Destroy(collectableRifle);
 			}
 		}
 

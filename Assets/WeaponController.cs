@@ -10,8 +10,6 @@ public class WeaponController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		playerController = ((PlayerController)player.GetComponent(typeof(PlayerController)));
-		Debug.Log(player);
-		Debug.Log(player);
 	}
 	
 	// Update is called once per frame
@@ -21,12 +19,24 @@ public class WeaponController : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col) 
 	{
-		Debug.Log(playerController);
-		playerController.setCanCollectPistol(true);
+		if (CompareTag("Pistol"))
+		{
+			playerController.setCanCollectPistol(true);
+		} else if (CompareTag("Rifle"))
+		{
+			playerController.setCanCollectRifle(true);
+		}
+		
 	}
 
 	void OnTriggerExit (Collider col) 
 	{
-		playerController.setCanCollectPistol(false);
+		if (CompareTag("Pistol"))
+		{
+			playerController.setCanCollectPistol(false);
+		} else if (CompareTag("Rifle"))
+		{
+			playerController.setCanCollectRifle(false);
+		}
 	}
 }

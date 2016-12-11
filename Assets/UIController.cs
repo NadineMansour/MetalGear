@@ -76,7 +76,6 @@ public class UIController : MonoBehaviour {
 
 	public void displayCollectables(){
 		showCollectables = !showCollectables;
-		Debug.Log(showCollectables);
 		collectablesPanel.gameObject.SetActive(showCollectables);
 	}
 
