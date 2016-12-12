@@ -71,7 +71,6 @@ public class PlayerController : MonoBehaviour {
 			turningDirection = 1.0f;
 		}
 		
-
 		if (Input.GetKey("a")){
 			//rotate anti-clockwise
 			transform.Rotate(Vector3.up * -50 * Time.deltaTime);
@@ -119,6 +118,7 @@ public class PlayerController : MonoBehaviour {
 		if(crouching){
 			idleGun = false;
 		} 
+		
 		pistol.active = idleGun;
 		pistol.transform.parent.gameObject.active = idleGun;
 		rifle.active = idleRifle;
