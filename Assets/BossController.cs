@@ -6,6 +6,7 @@ public class BossController : MonoBehaviour {
 
 	public GameObject target;
 	public int minDistance;
+	public float speed;
 
 	private bool follow;
 	private Animator animator;
@@ -18,14 +19,13 @@ public class BossController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(Vector3.Distance(transform.position,target.transform.position));
 		if(Vector3.Distance(transform.position,target.transform.position)>minDistance)
     		follow = true;
 		else
 			follow = false;
 		if(follow){
 			transform.LookAt(target.transform);
-			transform.Translate(Vector3.forward * Time.deltaTime);
+			transform.Translate(Vector3.forward * speed * Time.deltaTime);
 		}
 		animator.SetBool("bossMove", follow);
 	}
