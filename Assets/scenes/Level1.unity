@@ -233,6 +233,51 @@ Transform:
   m_Father: {fileID: 1415726663}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &243283779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 243283780}
+  - component: {fileID: 243283781}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243283780
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243283779}
+  m_LocalRotation: {x: -0.000000023869088, y: -0.000000014901159, z: 1.3017008e-10,
+    w: 1}
+  m_LocalPosition: {x: 0.54, y: 0.06, z: 0.17}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 0.99999976}
+  m_Children: []
+  m_Father: {fileID: 34689688}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &243283781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 243283779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde5adb005a694f69b5102539d8dab0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1000013095437380, guid: e09a0673dcdd5460a882481171f23334,
+    type: 2}
+  player: {fileID: 1771210625}
+  speed: 10
 --- !u!1 &341761416 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1478943367295666, guid: 8a366163c096a4fcfbfbf4dcb9dc5b31,
@@ -361,6 +406,11 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114703768507219084, guid: a594be444d6594ebc888687b815b164f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114115180581586486, guid: a594be444d6594ebc888687b815b164f,
         type: 2}
       propertyPath: m_Enabled
       value: 0
@@ -840,14 +890,15 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2108408755}
   m_GameObject: {fileID: 792158838}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fde5adb005a694f69b5102539d8dab0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1000013095437380, guid: e09a0673dcdd5460a882481171f23334,
     type: 2}
-  player: {fileID: 1771210625}
+  player: {fileID: 0}
+  speed: 0
 --- !u!1 &854543119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,6 +1922,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1111428585}
+  - {fileID: 2141177339}
   m_Father: {fileID: 34689688}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1910,14 +1962,15 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 379498134}
   m_GameObject: {fileID: 1613105468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fde5adb005a694f69b5102539d8dab0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1000013095437380, guid: e09a0673dcdd5460a882481171f23334,
     type: 2}
-  player: {fileID: 1771210625}
+  player: {fileID: 0}
+  speed: 0
 --- !u!1 &1661697348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,6 +2655,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114258125963103394, guid: 7b0c81527920a471a8cdc417af78f3a5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0c81527920a471a8cdc417af78f3a5, type: 2}
   m_IsPrefabParent: 0
@@ -2609,3 +2667,47 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400088, guid: b8074f5d4dcb8448bb8c72c530dff6c2, type: 3}
   m_PrefabInternal: {fileID: 366015612}
+--- !u!1 &2141177338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2141177339}
+  - component: {fileID: 2141177340}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2141177339
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141177338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 0.06, z: 0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1613105469}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2141177340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141177338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde5adb005a694f69b5102539d8dab0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1000013095437380, guid: e09a0673dcdd5460a882481171f23334,
+    type: 2}
+  player: {fileID: 1771210625}
+  speed: 10

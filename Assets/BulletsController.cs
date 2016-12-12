@@ -5,6 +5,7 @@ public class BulletsController : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public GameObject player;
+	public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class BulletsController : MonoBehaviour {
 			bullet.transform.rotation = player.transform.rotation;
 
 			// Add velocity to the bullet
-			bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 6;
+			bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * speed;
 
 			// Destroy the bullet after 2 seconds
 			Destroy(bullet, 4.0f);
