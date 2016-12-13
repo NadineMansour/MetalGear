@@ -21,7 +21,7 @@ public class BossController : MonoBehaviour {
 	void Update () {
 		if(Vector3.Distance(transform.position,target.transform.position)>minDistance)
     		follow = true;
-		else
+		else 
 			follow = false;
 		if(follow){
 			transform.LookAt(target.transform);

@@ -6,10 +6,12 @@ public class BulletsController : MonoBehaviour {
 	public GameObject bulletPrefab;
 	public GameObject player;
 	public float speed;
+	private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () {
-	
+		audioSource = GetComponent<AudioSource>();
+		Debug.Log(audioSource);
 	}
 	
 	// Update is called once per frame
@@ -22,6 +24,9 @@ public class BulletsController : MonoBehaviour {
 
 			// Add velocity to the bullet
 			bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * speed;
+
+			//Play sound 
+			audioSource.Play();
 
 			// Destroy the bullet after 2 seconds
 			Destroy(bullet, 4.0f);
