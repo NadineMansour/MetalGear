@@ -10,11 +10,13 @@ public class BossController : MonoBehaviour {
 
 	private bool follow;
 	private Animator animator;
+	private int health;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
 		follow = false;
+		health = 500;
 	}
 	
 	// Update is called once per frame

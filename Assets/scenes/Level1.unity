@@ -299,6 +299,7 @@ MonoBehaviour:
     type: 2}
   player: {fileID: 1771210625}
   speed: 10
+  light: {fileID: 676103967}
 --- !u!82 &243283782
 AudioSource:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300001, guid: bd8802a3984d94df998797f1ae0a0db8,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ba77fac62c8f540eb8acc347c1789424, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -589,9 +590,23 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1771210625}
+    - target: {fileID: 1317905764131320, guid: 4cc8fb47a0b8947aa9b6e1d3c746bcb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114137287888862266, guid: 4cc8fb47a0b8947aa9b6e1d3c746bcb8,
+        type: 2}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 718425250}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cc8fb47a0b8947aa9b6e1d3c746bcb8, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &379498135 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4340623274624652, guid: 4cc8fb47a0b8947aa9b6e1d3c746bcb8,
+    type: 2}
+  m_PrefabInternal: {fileID: 379498134}
 --- !u!1 &424662656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1025,132 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 073bfdc18173146eab1ea92f3100745d, type: 3}
   m_PrefabInternal: {fileID: 1783481292}
+--- !u!1 &676103965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 676103966}
+  - component: {fileID: 676103967}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676103966
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676103965}
+  m_LocalRotation: {x: 0.29733, y: 0.09287416, z: -0.38933504, w: 0.8668261}
+  m_LocalPosition: {x: 0.049999956, y: 0.035000015, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 34689688}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &676103967
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676103965}
+  m_Enabled: 1
+  serializedVersion: 7
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.4
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &718425248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 718425249}
+  - component: {fileID: 718425250}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: PistolLight
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &718425249
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 718425248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 379498135}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &718425250
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 718425248}
+  m_Enabled: 1
+  serializedVersion: 7
+  m_Type: 2
+  m_Color: {r: 0.8229925, g: 0.9117647, b: 0.5095156, a: 1}
+  m_Intensity: 0.2
+  m_Range: 5
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0.2
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &792158838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1213,7 @@ MonoBehaviour:
     type: 2}
   player: {fileID: 0}
   speed: 0
+  light: {fileID: 0}
 --- !u!1 &854543119
 GameObject:
   m_ObjectHideFlags: 0
