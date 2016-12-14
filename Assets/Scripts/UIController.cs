@@ -8,10 +8,12 @@ public class UIController : MonoBehaviour {
 	public Transform collectablesPanel;
     public GameObject prefabButton, pausemenu, gameovermenu;
 	public GameObject player;
+	public GameObject barrel;
 
 	private List<string> collected;
 	private List<GameObject> buttons;
 	private bool showCollectables;
+	private bool activeBarrel;
 
 	private int index = 0;
 	private int max;
@@ -24,10 +26,13 @@ public class UIController : MonoBehaviour {
 		showCollectables = false;
 		collected = new List<string>();
 		buttons = new List<GameObject>();
+		barrel.SetActive (false);
+		collectItem ("Barrel");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		barrel.transform.position = player.transform.position;
 		if (Input.GetKeyUp("left")){
 			// left
 			index --;
@@ -54,6 +59,10 @@ public class UIController : MonoBehaviour {
 				((PlayerController)player.GetComponent(typeof(PlayerController))).pistolSelected();
 			} else if(collected[index].Equals("Rifle")) {
 				((PlayerController)player.GetComponent(typeof(PlayerController))).rifleSelected();
+			} else if (collected[index].Equals("Barrel")){
+				activeBarrel = !activeBarrel;
+				player.gameObject.SetActive (!activeBarrel);
+				barrel.gameObject.SetActive (activeBarrel);
 			}
 		}
 

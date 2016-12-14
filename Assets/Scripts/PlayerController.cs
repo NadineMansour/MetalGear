@@ -10,17 +10,20 @@ public class PlayerController : MonoBehaviour {
 	private float crawlDirection = 0.0f;
 	private float turningDirection = 0.0f;
 	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn,jumpForward;
-	private bool canCollectPistol, canCollectRifle;
+	private bool canCollectPistol, canCollectRifle, canCollectHealth;
 	private bool pistolCollected, rifleCollected;
 	public GameObject collectablePistol, collectableRifle;
+	private int heatlth;
 	
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
 		canCollectRifle = false;
 		canCollectPistol = false;
+		canCollectHealth = false;
 		pistolCollected = false;
 		rifleCollected = false;
+		heatlth = 100;
 	}
 	
 	// Update is called once per frame
@@ -88,6 +91,13 @@ public class PlayerController : MonoBehaviour {
 				//pistolSelected();
 				canCollectPistol = false;
 				Destroy(collectablePistol);
+			}	
+		}
+
+		if (Input.GetKeyUp("h")){
+			if(canCollectHealth) {
+				heatlth += 20;
+				Debug.Log (heatlth);
 			}	
 		}
 
@@ -159,6 +169,10 @@ public class PlayerController : MonoBehaviour {
 
 	public void setCanCollectPistol(bool can){
 		canCollectPistol = can;
+	}
+
+	public void setCanCollectHealth(bool can){
+		canCollectHealth = can;
 	}
 
 	public void rifleSelected(){
