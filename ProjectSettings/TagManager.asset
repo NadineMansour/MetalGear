@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - PistolLight
   - Barrel
+  - Health
   layers:
   - Default
   - TransparentFX
