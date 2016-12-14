@@ -8,8 +8,8 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pausemenu;
     public Text muteText;
-	public AudioClip buttonClicked;
-	public AudioSource audioSource;
+    public AudioClip buttonClicked;
+	public AudioSource audioSource, PauseAudioSource;
 
     public void mute()
     {
@@ -45,13 +45,19 @@ public class PauseMenu : MonoBehaviour {
 
         if (!pausemenu.gameObject.activeInHierarchy)
         {
+            audioSource.Pause();
+            //PauseAudioSource.enabled = true;
+            PauseAudioSource.Play();
             pausemenu.gameObject.SetActive(true);
             Time.timeScale = 0;
+
         }
         else
         {
+            PauseAudioSource.Stop();
             pausemenu.gameObject.SetActive(false);
             Time.timeScale = 1;
+            audioSource.Play();
         }
     }
 }

@@ -9,9 +9,9 @@ public class StartMenu : MonoBehaviour {
     public Text muteText;
     public GameObject howtoplay;
     public GameObject credits;
-    public GameObject buttons;
 	public AudioClip buttonClicked;
 	public AudioSource audioSource;
+
 
     void Update()
     {
@@ -31,29 +31,31 @@ public class StartMenu : MonoBehaviour {
 
     public void showCredits()
     {
+        audioSource.PlayOneShot(buttonClicked);
         if (!credits.gameObject.activeInHierarchy)
         {
             credits.gameObject.SetActive(true);
             //buttons.gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
-		audioSource.PlayOneShot (buttonClicked);
     }
 
     public void howToPlay()
     {
+        audioSource.PlayOneShot(buttonClicked);
         if (!howtoplay.gameObject.activeInHierarchy)
         {
             howtoplay.gameObject.SetActive(true);
-            //buttons.gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
-		audioSource.PlayOneShot (buttonClicked);
+		
     }
 
     public void exit()
     {
 		audioSource.PlayOneShot (buttonClicked);
+        StartCoroutine(waiting(0.7f));
+
         #if UNITY_EDITOR
                         UnityEditor.EditorApplication.isPlaying = false;
         #else
@@ -63,7 +65,8 @@ public class StartMenu : MonoBehaviour {
 
     public void startGame()
     {
-		audioSource.PlayOneShot (buttonClicked);
+		audioSource.PlayOneShot(buttonClicked);
+        StartCoroutine(waiting(0.7f));
         Application.LoadLevel("Level3");
     }
 
@@ -94,6 +97,11 @@ public class StartMenu : MonoBehaviour {
         {
             credits.gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator waiting(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
     }
 
 }

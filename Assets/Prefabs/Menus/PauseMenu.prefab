@@ -286,6 +286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausemenu: {fileID: 1511363690436948}
   muteText: {fileID: 114063198598170828}
+  buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &114106139410245310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,7 +307,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0.078431375}
+    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0}
     m_HighlightedColor: {r: 0.45882353, g: 0.45882353, b: 0.45882353, a: 0.47058824}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -384,7 +386,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0.078431375}
+    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0}
     m_HighlightedColor: {r: 0.45882353, g: 0.45882353, b: 0.45882353, a: 0.47058824}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -496,7 +498,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0.078431375}
+    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0}
     m_HighlightedColor: {r: 0.45882353, g: 0.45882353, b: 0.45882353, a: 0.47058824}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -542,6 +544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausemenu: {fileID: 1511363690436948}
   muteText: {fileID: 114063198598170828}
+  buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &114611695829549008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,6 +559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausemenu: {fileID: 1511363690436948}
   muteText: {fileID: 114063198598170828}
+  buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &114649710683522562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -617,7 +623,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0.078431375}
+    m_NormalColor: {r: 0.015686275, g: 0.015686275, b: 0.015686275, a: 0}
     m_HighlightedColor: {r: 0.45882353, g: 0.45882353, b: 0.45882353, a: 0.47058824}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -690,6 +696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausemenu: {fileID: 1511363690436948}
   muteText: {fileID: 114063198598170828}
+  buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
+  audioSource: {fileID: 0}
 --- !u!114 &114876507682645010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -893,10 +901,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 224493202642492840}
-  - {fileID: 224450632227165300}
-  - {fileID: 224146298813706400}
   - {fileID: 224508016304632114}
+  - {fileID: 224450632227165300}
+  - {fileID: 224493202642492840}
+  - {fileID: 224146298813706400}
   - {fileID: 224230959881462444}
   m_Father: {fileID: 224896838501063240}
   m_RootOrder: 0
@@ -904,7 +912,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 190}
+  m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224146298813706400
 RectTransform:
@@ -918,11 +926,11 @@ RectTransform:
   m_Children:
   - {fileID: 224603370913179856}
   m_Father: {fileID: 224118384843279348}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -35}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224153103215343034
@@ -1010,11 +1018,11 @@ RectTransform:
   m_Children:
   - {fileID: 224588407415935378}
   m_Father: {fileID: 224118384843279348}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 35}
+  m_AnchoredPosition: {x: 0, y: -35}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224508016304632114
@@ -1029,11 +1037,11 @@ RectTransform:
   m_Children:
   - {fileID: 224153103215343034}
   m_Father: {fileID: 224118384843279348}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70}
+  m_AnchoredPosition: {x: 0, y: 35}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224588407415935378
