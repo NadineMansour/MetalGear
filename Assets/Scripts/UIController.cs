@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour {
 
 	public Transform collectablesPanel;
-	public GameObject prefabButton;
+    public GameObject prefabButton, pausemenu, gameovermenu;
 	public GameObject player;
 	public GameObject barrel;
 
@@ -88,4 +88,28 @@ public class UIController : MonoBehaviour {
 		collectablesPanel.gameObject.SetActive(showCollectables);
 	}
 
+    public void Pause()
+    {
+
+        if (!pausemenu.gameObject.activeInHierarchy)
+        {
+            pausemenu.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pausemenu.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void GameOver()
+    {
+
+        if (!gameovermenu.gameObject.activeInHierarchy)
+        {
+            gameovermenu.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
 }

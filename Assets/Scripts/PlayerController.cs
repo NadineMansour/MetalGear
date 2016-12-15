@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator animator;
 	public GameObject pistol, rifle;
-	public GameObject uiManager;
+    public GameObject uiManager;
 	private float speed = 3.0f;
 	private float crawlDirection = 0.0f;
 	private float turningDirection = 0.0f;
@@ -124,6 +124,12 @@ public class PlayerController : MonoBehaviour {
 			//jump
 			jump = true;
 		}
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            ((UIController)uiManager.GetComponent(typeof(UIController))).Pause();
+            //((UIController)uiManager.GetComponent(typeof(UIController))).GameOver();
+        }
 		
 		if(crouching){
 			idleGun = false;
