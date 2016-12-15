@@ -177,12 +177,18 @@ public class PlayerController : MonoBehaviour {
 
 	public void rifleSelected(){
 		idleRifle = !idleRifle;
+		foreach (Transform child in rifle.transform) {
+			child.gameObject.SetActive(idleRifle);
+		}
 		if(idleGun)
 			idleGun = false;
 	}
 
 	public void pistolSelected(){
 		idleGun = !idleGun;
+		foreach (Transform child in pistol.transform) {
+			child.gameObject.SetActive(idleGun);
+		}
 		if(idleRifle)
 			idleRifle = false;
 	}

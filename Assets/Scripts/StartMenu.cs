@@ -10,10 +10,11 @@ public class StartMenu : MonoBehaviour {
     public GameObject howtoplay;
     public GameObject credits;
     public GameObject buttons;
+	public AudioClip buttonClicked;
+	public AudioSource audioSource;
 
     void Update()
     {
-        Debug.Log("in update");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("in esc");
@@ -36,6 +37,7 @@ public class StartMenu : MonoBehaviour {
             //buttons.gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
+		audioSource.PlayOneShot (buttonClicked);
     }
 
     public void howToPlay()
@@ -46,10 +48,12 @@ public class StartMenu : MonoBehaviour {
             //buttons.gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
+		audioSource.PlayOneShot (buttonClicked);
     }
 
     public void exit()
     {
+		audioSource.PlayOneShot (buttonClicked);
         #if UNITY_EDITOR
                         UnityEditor.EditorApplication.isPlaying = false;
         #else
@@ -59,12 +63,15 @@ public class StartMenu : MonoBehaviour {
 
     public void startGame()
     {
+		audioSource.PlayOneShot (buttonClicked);
         Application.LoadLevel("Level3");
     }
 
     public void mute()
     {
+		audioSource.PlayOneShot (buttonClicked);
         AudioListener.volume = 1 - AudioListener.volume;
+		Debug.Log (muteText.text);
         if (muteText.text == "Mute")
         {
             muteText.text = "UnMute";
@@ -77,7 +84,7 @@ public class StartMenu : MonoBehaviour {
     }
 
     public void Back() {
-
+		audioSource.PlayOneShot (buttonClicked);
         EventSystem.current.SetSelectedGameObject(null);
         if (howtoplay.gameObject.activeInHierarchy)
         {
