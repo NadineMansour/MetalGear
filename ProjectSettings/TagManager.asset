@@ -10,6 +10,7 @@ TagManager:
   - PistolLight
   - Barrel
   - Health
+  - container
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour {
     string stage;  
 
     float timer;
+
+    GameObject player;
 	// Use this for initialization
 	void Start () {
         walk = false;
@@ -22,27 +24,27 @@ public class EnemyController : MonoBehaviour {
         rotate = false;
         positveDirection = false;
         timer = 4;
-        stage = "walk";
-
+        stage = "walk";        
         enemy = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");    
+        
 	}
 	
 	// Update is called once per frame
-	void Update () {       
-        motionController();
+	void Update () {
+        FieldOfView();
+        motionController();               
         enemy.SetDestination(target.position);
         anim.SetBool("stop", stop);
         anim.SetBool("walk", walk);
-        anim.SetBool("rotate", rotate);
+        anim.SetBool("rotate", rotate);                        
     }
 
     void motionController()
     {
         if (stage == "idle")
-        {
-            Debug.Log("inside idle");
-            Debug.Log(anim.GetCurrentAnimatorStateInfo(0).IsName("idle"));
+        {           
             timer -= Time.deltaTime;
             stop = true;
             walk = false;
@@ -56,8 +58,7 @@ public class EnemyController : MonoBehaviour {
             
         }
         else if(stage == "rotate")
-        {
-            Debug.Log("inside rotate");
+        {           
             rotate = true;
             walk = false;
             stop = false;
@@ -89,8 +90,7 @@ public class EnemyController : MonoBehaviour {
                 //do somthing
         }
         else if (stage == "walk")
-        {
-            Debug.Log("inside walk");            
+        {         
             walk = true;
             stop = false;
             rotate = false;
@@ -100,6 +100,26 @@ public class EnemyController : MonoBehaviour {
                 stop = true;
                 rotate = false;
                 walk = false;
+            }
+        }
+    }
+
+    void FieldOfView()
+    {
+        RaycastHit hit;
+        Vector3 rayPosition = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+        Vector3 direction = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z) - rayPosition;
+        float angle = Vector3.Angle(direction, transform.forward);
+
+        if (angle < 60)
+        {
+            if (Physics.Raycast(rayPosition, direction, out hit, 10))
+            {
+                //Debug.Log(hit.collider.transform.position);            
+                if (hit.collider.tag == "Player")
+                {
+                    Debug.Log("emsek 7aramy");
+                }
             }
         }
     }
