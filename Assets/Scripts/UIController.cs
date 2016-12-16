@@ -9,11 +9,15 @@ public class UIController : MonoBehaviour {
     public GameObject prefabButton, pausemenu, gameovermenu;
 	public GameObject player;
 	public GameObject barrel;
+    public GameObject door;
+    public AudioSource audioSource, PauseAudioSource;
+    public AudioClip gameoverMusic;
 
 	private List<string> collected;
 	private List<GameObject> buttons;
 	private bool showCollectables;
 	private bool activeBarrel;
+    private DoorController doorController;
 
 	private int index = 0;
 	private int max;
@@ -28,10 +32,11 @@ public class UIController : MonoBehaviour {
 		buttons = new List<GameObject>();
 		barrel.SetActive (false);
 		collectItem ("Barrel");
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        doorController = ((DoorController)door.GetComponent(typeof(DoorController)));
+    }
+
+    // Update is called once per frame
+    void Update () {
 		barrel.transform.position = player.transform.position;
 		if (Input.GetKeyUp("left")){
 			// left
@@ -63,8 +68,12 @@ public class UIController : MonoBehaviour {
 				activeBarrel = !activeBarrel;
 				player.gameObject.SetActive (!activeBarrel);
 				barrel.gameObject.SetActive (activeBarrel);
-			}
-		}
+			} else if (collected[index].Equals("Key"))
+            {
+                Debug.Log("enter");
+                doorController.setCanOpen(true);
+            }
+        }
 
 	}
 
@@ -93,11 +102,15 @@ public class UIController : MonoBehaviour {
 
         if (!pausemenu.gameObject.activeInHierarchy)
         {
+            audioSource.Pause();
+            PauseAudioSource.Play();
             pausemenu.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
+            PauseAudioSource.Stop();
+            audioSource.Play();
             pausemenu.gameObject.SetActive(false);
             Time.timeScale = 1;
         }
@@ -108,6 +121,8 @@ public class UIController : MonoBehaviour {
 
         if (!gameovermenu.gameObject.activeInHierarchy)
         {
+            audioSource.Stop();
+            audioSource.PlayOneShot(gameoverMusic);
             gameovermenu.gameObject.SetActive(true);
             Time.timeScale = 0;
         }

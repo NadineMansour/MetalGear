@@ -6,15 +6,16 @@ public class WeaponController : MonoBehaviour {
 
 	public GameObject player;
 	private PlayerController playerController;
-	private bool canCollectHealth;
+    private bool canCollectHealth;
+    private GameObject door;
 
 	// Use this for initialization
 	void Start () {
 		playerController = ((PlayerController)player.GetComponent(typeof(PlayerController)));
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update () {
 		transform.Rotate (new Vector3 (15, 30, 45) * Time.deltaTime);
 
 		if (Input.GetKeyUp("h")){
@@ -39,6 +40,10 @@ public class WeaponController : MonoBehaviour {
 				canCollectHealth = true;
 				playerController.setCanCollectHealth(true);
 			}
+            else if (CompareTag("Key"))
+            {
+                playerController.setCanCollectKey(true);
+            }
 		}
 	}
 
@@ -55,7 +60,11 @@ public class WeaponController : MonoBehaviour {
 				canCollectHealth = false;
 				playerController.setCanCollectHealth(false);
 			}
-		}
+            else if (CompareTag("Key"))
+            {
+                playerController.setCanCollectKey(false);
+            }
+        }
 	}
 		
 }

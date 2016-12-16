@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour {
 	private float crawlDirection = 0.0f;
 	private float turningDirection = 0.0f;
 	private bool walkForward, walkBackward, suspendMove, jump, crawlIdle, idleGun, idleRifle, turn,jumpForward;
-	private bool canCollectPistol, canCollectRifle, canCollectHealth;
-	private bool pistolCollected, rifleCollected;
-	public GameObject collectablePistol, collectableRifle;
+	private bool canCollectPistol, canCollectRifle, canCollectHealth, canCollectKey;
+	private bool pistolCollected, rifleCollected,keyCollected;
+	public GameObject collectablePistol, collectableRifle, collectableKey;
 	private int heatlth;
 	
 	// Use this for initialization
@@ -94,8 +94,18 @@ public class PlayerController : MonoBehaviour {
 				Destroy(collectablePistol);
 			}	
 		}
+        if (Input.GetKeyUp("k"))
+        {
+            if (canCollectKey && !keyCollected)
+            {
+                ((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Key");
+                keyCollected = true;
+                canCollectKey = false;
+                Destroy(collectableKey);
+            }
+        }
 
-		if (Input.GetKeyUp("h")){
+        if (Input.GetKeyUp("h")){
 			if(canCollectHealth) {
 				heatlth += 20;
 				Debug.Log (heatlth);
@@ -113,9 +123,9 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyUp("k")){
+		/*if (Input.GetKeyUp("k")){
 			((UIController)uiManager.GetComponent(typeof(UIController))).collectItem("Key");
-		}
+		}*/
 
 		if (Input.GetKeyUp("m")){
 			((UIController)uiManager.GetComponent(typeof(UIController))).displayCollectables();
@@ -175,8 +185,12 @@ public class PlayerController : MonoBehaviour {
 	public void setCanCollectHealth(bool can){
 		canCollectHealth = can;
 	}
+    public void setCanCollectKey(bool can)
+    {
+        canCollectKey = can;
+    }
 
-	public void rifleSelected(){
+    public void rifleSelected(){
 		idleRifle = !idleRifle;
 		foreach (Transform child in rifle.transform) {
 			child.gameObject.SetActive(idleRifle);

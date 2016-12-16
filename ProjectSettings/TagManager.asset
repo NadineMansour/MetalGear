@@ -12,6 +12,9 @@ TagManager:
   - Health
   - container
   - Enemy
+  - MiddleDoor
+  - LeftDoor
+  - Key
   layers:
   - Default
   - TransparentFX
