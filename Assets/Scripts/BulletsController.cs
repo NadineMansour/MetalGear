@@ -8,6 +8,7 @@ public class BulletsController : MonoBehaviour {
 	public float speed;
 	public Light light;
 	private AudioSource audioSource;
+	private bool isActive;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,10 @@ public class BulletsController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		light.enabled = false;
+
 		if (Input.GetMouseButtonDown(0) && gameObject.activeSelf){
+			Debug.Log (gameObject);
+			Debug.Log (gameObject.transform.parent.gameObject.activeSelf);
 			// Create the Bullet from the Bullet Prefab
 			var bullet = (GameObject)Instantiate (bulletPrefab);
 			bullet.transform.position = transform.position;
@@ -35,4 +39,6 @@ public class BulletsController : MonoBehaviour {
 			Destroy(bullet, 4.0f);
 		}
 	}
+
+
 }

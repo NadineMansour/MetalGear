@@ -8,9 +8,12 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject pausemenu;
     public Text muteText;
+	public AudioClip buttonClicked;
+	public AudioSource audioSource;
 
     public void mute()
     {
+		audioSource.PlayOneShot (buttonClicked);
         AudioListener.volume = 1 - AudioListener.volume;
         if (muteText.text == "Mute")
         {
@@ -25,12 +28,14 @@ public class PauseMenu : MonoBehaviour {
 
     public void Restart()
     {
+		audioSource.PlayOneShot (buttonClicked);
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Quit() 
     {
+		audioSource.PlayOneShot (buttonClicked);
         Time.timeScale = 1;
         Application.LoadLevel("StartScene");
     }
