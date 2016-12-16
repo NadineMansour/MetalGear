@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114649710683522562}
   - component: {fileID: 114106139410245310}
   - component: {fileID: 114540238518739836}
+  - component: {fileID: 114620528260591716}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -94,6 +95,7 @@ GameObject:
   - component: {fileID: 114800771051220700}
   - component: {fileID: 114539889462394538}
   - component: {fileID: 114829944220272504}
+  - component: {fileID: 114510012957877326}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -164,6 +166,7 @@ GameObject:
   - component: {fileID: 114384017811887866}
   - component: {fileID: 114768668141339122}
   - component: {fileID: 114611695829549008}
+  - component: {fileID: 114141350667455746}
   m_Layer: 5
   m_Name: MuteButton
   m_TagString: Untagged
@@ -183,6 +186,7 @@ GameObject:
   - component: {fileID: 114112269722900752}
   - component: {fileID: 114112303346880250}
   - component: {fileID: 114103948523884960}
+  - component: {fileID: 114798596778494128}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -288,6 +292,7 @@ MonoBehaviour:
   muteText: {fileID: 114063198598170828}
   buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
   audioSource: {fileID: 0}
+  PauseAudioSource: {fileID: 0}
 --- !u!114 &114106139410245310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,6 +424,37 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114141350667455746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834548266587244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: df7a34bdfd6e3ef4392a376f568c05c9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114173100276864688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -479,6 +515,37 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114510012957877326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1753077175025672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: df7a34bdfd6e3ef4392a376f568c05c9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114539889462394538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -546,6 +613,7 @@ MonoBehaviour:
   muteText: {fileID: 114063198598170828}
   buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
   audioSource: {fileID: 0}
+  PauseAudioSource: {fileID: 0}
 --- !u!114 &114611695829549008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -561,6 +629,38 @@ MonoBehaviour:
   muteText: {fileID: 114063198598170828}
   buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
   audioSource: {fileID: 0}
+  PauseAudioSource: {fileID: 0}
+--- !u!114 &114620528260591716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621962937126668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: df7a34bdfd6e3ef4392a376f568c05c9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114649710683522562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -656,6 +756,37 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114798596778494128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846049953628032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: PlayOneShot
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: df7a34bdfd6e3ef4392a376f568c05c9,
+              type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114800771051220700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,6 +829,7 @@ MonoBehaviour:
   muteText: {fileID: 114063198598170828}
   buttonClicked: {fileID: 8300000, guid: 99a231f42580240a2b2ee4cd0033c363, type: 3}
   audioSource: {fileID: 0}
+  PauseAudioSource: {fileID: 0}
 --- !u!114 &114876507682645010
 MonoBehaviour:
   m_ObjectHideFlags: 1

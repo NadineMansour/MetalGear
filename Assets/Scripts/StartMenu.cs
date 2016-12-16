@@ -99,6 +99,7 @@ public class StartMenu : MonoBehaviour {
         }
     }
 
+
     IEnumerator waiting(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);

@@ -506,27 +506,42 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114481001009790580, guid: c35badd8f0115684fb39be748d2320ac,
+    - target: {fileID: 114407412109612712, guid: c35badd8f0115684fb39be748d2320ac,
         type: 2}
-      propertyPath: audioSource
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1239451139}
-    - target: {fileID: 114328031433118144, guid: c35badd8f0115684fb39be748d2320ac,
+    - target: {fileID: 114190343856325422, guid: c35badd8f0115684fb39be748d2320ac,
         type: 2}
-      propertyPath: audioSource
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1239451139}
-    - target: {fileID: 114343480280389684, guid: c35badd8f0115684fb39be748d2320ac,
+    - target: {fileID: 114854796845650750, guid: c35badd8f0115684fb39be748d2320ac,
         type: 2}
-      propertyPath: audioSource
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114047258464365590, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114133600931337816, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114662606832546532, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114386482036012264, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1239451139}
     - target: {fileID: 114785119762170866, guid: c35badd8f0115684fb39be748d2320ac,
-        type: 2}
-      propertyPath: audioSource
-      value: 
-      objectReference: {fileID: 1239451139}
-    - target: {fileID: 114054234041447160, guid: c35badd8f0115684fb39be748d2320ac,
         type: 2}
       propertyPath: audioSource
       value: 
@@ -537,6 +552,26 @@ Prefab:
       value: 
       objectReference: {fileID: 1239451139}
     - target: {fileID: 114648849249230450, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114481001009790580, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114343480280389684, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114328031433118144, guid: c35badd8f0115684fb39be748d2320ac,
+        type: 2}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1239451139}
+    - target: {fileID: 114054234041447160, guid: c35badd8f0115684fb39be748d2320ac,
         type: 2}
       propertyPath: audioSource
       value: 

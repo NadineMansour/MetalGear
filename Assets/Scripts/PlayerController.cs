@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+
             ((UIController)uiManager.GetComponent(typeof(UIController))).Pause();
             //((UIController)uiManager.GetComponent(typeof(UIController))).GameOver();
         }

@@ -11,12 +11,12 @@ public class UIController : MonoBehaviour {
 	public GameObject barrel;
     public GameObject door;
     public AudioSource audioSource, PauseAudioSource;
-    public AudioClip gameoverMusic;
+    public AudioClip gameoverMusic, menuAppear,selected, hover;
 
 	private List<string> collected;
 	private List<GameObject> buttons;
 	private bool showCollectables;
-	private bool activeBarrel;
+    private bool activeBarrel, activeCollectablesMenu;
     private DoorController doorController;
 
 	private int index = 0;
@@ -38,15 +38,20 @@ public class UIController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		barrel.transform.position = player.transform.position;
-		if (Input.GetKeyUp("left")){
-			// left
+        if (Input.GetKeyUp(KeyCode.M)) {
+            activeCollectablesMenu = !activeCollectablesMenu;
+        }
+		if (Input.GetKeyUp("left") && activeCollectablesMenu && max > 1){
+            // left
+            audioSource.PlayOneShot(hover);
 			index --;
 			if(index == -1)
 				index = max-1;
 		}
-		if (Input.GetKeyUp("right")){
-			// right
-			index ++;
+		if (Input.GetKeyUp("right") && activeCollectablesMenu && max > 1){
+            // right
+            audioSource.PlayOneShot(hover);
+            index ++;
 			if(index == max)
 				index = 0;
 		}
@@ -60,7 +65,8 @@ public class UIController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyUp(KeyCode.Return)){
-			if(collected[index].Equals("Gun")){
+            audioSource.PlayOneShot(selected);
+            if (collected[index].Equals("Gun")){
 				((PlayerController)player.GetComponent(typeof(PlayerController))).pistolSelected();
 			} else if(collected[index].Equals("Rifle")) {
 				((PlayerController)player.GetComponent(typeof(PlayerController))).rifleSelected();
@@ -103,6 +109,7 @@ public class UIController : MonoBehaviour {
         if (!pausemenu.gameObject.activeInHierarchy)
         {
             audioSource.Pause();
+            audioSource.PlayOneShot(menuAppear);
             PauseAudioSource.Play();
             pausemenu.gameObject.SetActive(true);
             Time.timeScale = 0;
@@ -122,6 +129,7 @@ public class UIController : MonoBehaviour {
         if (!gameovermenu.gameObject.activeInHierarchy)
         {
             audioSource.Stop();
+            //audioSource.PlayOneShot(menuAppear);
             audioSource.PlayOneShot(gameoverMusic);
             gameovermenu.gameObject.SetActive(true);
             Time.timeScale = 0;
