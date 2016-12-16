@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour {
     public float negativeZ;
     public float positiveX;
     public float negativeX;
+    public float targetXdisp;
+    public float targetZdisp;
 
     bool walk;
     bool stop;
@@ -55,8 +57,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     void motionController()
-    {
-        Debug.Log(stage);
+    {        
         if (stage == "idle")
         {
             timer -= Time.deltaTime;
@@ -120,6 +121,7 @@ public class EnemyController : MonoBehaviour {
             target.position = transform.position;
             transform.LookAt(distractionPosition);            
             stage = "distracted running";
+            target.position = new Vector3(distractionPosition.x + targetXdisp, distractionPosition.y, distractionPosition.z + targetZdisp);
         }
         else if(stage == "distracted running")
         {
@@ -128,7 +130,7 @@ public class EnemyController : MonoBehaviour {
             walk = false;
             stop = false;
             rotate = false;
-            target.position = distractionPosition;
+            
 
             if (transform.position.x == target.position.x && transform.position.z == target.position.z)
             {                               
