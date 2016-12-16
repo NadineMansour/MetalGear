@@ -199,15 +199,14 @@ public class PlayerController : MonoBehaviour {
     {
         if(Input.GetKey(KeyCode.F))
         {
-            RaycastHit hit;
-
-            Vector3 distractionPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);            
+            RaycastHit hit;    
+            Vector3 distractionPos = new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z);            
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
             Debug.Log(enemies.Length);
             for(int i = 0;i < enemies.Length;i++)
             {
                 GameObject currentEnemy = enemies[i];
-                Vector3 direction = new Vector3(currentEnemy.transform.position.x, currentEnemy.transform.position.y + 1.0f,
+                Vector3 direction = new Vector3(currentEnemy.transform.position.x, currentEnemy.transform.position.y+1f + 1.0f,
                 currentEnemy.transform.position.z) - distractionPos;                
 
                 if (Physics.Raycast(distractionPos,direction,out hit,10))
