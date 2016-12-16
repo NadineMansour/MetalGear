@@ -28,8 +28,9 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		bool crouching  = false;
+
+        enemyDestraction();
+        bool crouching  = false;
 		walkForward = false;
 		walkBackward = false;
 		crawlIdle = false;
@@ -193,4 +194,37 @@ public class PlayerController : MonoBehaviour {
 			idleRifle = false;
 	}
 
+//disable raycast after collision
+    void enemyDestraction()
+    {
+        if(Input.GetKey(KeyCode.F))
+        {
+            RaycastHit hit;
+
+            Vector3 distractionPos = new Vector3(transform.position.x, transform.position.y + 1.0f, transform.position.z);            
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Debug.Log(enemies.Length);
+            for(int i = 0;i < enemies.Length;i++)
+            {
+                GameObject currentEnemy = enemies[i];
+                Vector3 direction = new Vector3(currentEnemy.transform.position.x, currentEnemy.transform.position.y + 1.0f,
+                currentEnemy.transform.position.z) - distractionPos;                
+
+                if (Physics.Raycast(distractionPos,direction,out hit,10))
+                {
+                    Debug.Log("inside");
+                    if(hit.collider.tag == "Enemy")
+                    {
+                        Debug.Log("enemy");
+                        currentEnemy.GetComponent<EnemyController>().stage = "distracted";
+                        currentEnemy.GetComponent<EnemyController>().distracted= true;
+                        currentEnemy.GetComponent<EnemyController>().distractionPosition = distractionPos;
+                    }
+                }
+            }
+            
+        }
+        
+
+    }
 }

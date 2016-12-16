@@ -743,6 +743,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1454149537}
+  distracted: 0
+  distractionPosition: {x: 0, y: 0, z: 0}
+  stage: 
 --- !u!136 &352489057
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4002,6 +4005,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ded38b6d2d1736a458c40b86039791c0, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: ded38b6d2d1736a458c40b86039791c0, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ded38b6d2d1736a458c40b86039791c0, type: 3}
@@ -4836,8 +4843,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!23 &2027006641
 MeshRenderer:
