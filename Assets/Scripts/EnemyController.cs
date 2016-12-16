@@ -7,6 +7,11 @@ public class EnemyController : MonoBehaviour {
     public Transform target;
     private Animator anim;
 
+    public float positiveZ;
+    public float negativeZ;
+    public float positiveX;
+    public float negativeX;
+
     bool walk;
     bool stop;
     bool rotate;    
@@ -83,12 +88,12 @@ public class EnemyController : MonoBehaviour {
                 stage = "walk";
                 if (positveDirection)
                 {
-                    target.position = new Vector3(target.position.x, target.position.y, target.position.z + 10);
+                    target.position = new Vector3(positiveX, target.position.y, positiveZ);
                     positveDirection = false;
                 }
                 else
                 {
-                    target.position = new Vector3(target.position.x, target.position.y, target.position.z - 10);
+                    target.position = new Vector3(negativeX, target.position.y, negativeZ);
                     positveDirection = true;
                 }
             }
@@ -152,30 +157,10 @@ public class EnemyController : MonoBehaviour {
             }            
         }
        else if(stage == "walking to path")
-        {
-            /*if(transform.position.x == target.position.x && transform.position.z == target.position.z)
-            {                
-                Vector3 Z4 = new Vector3(5, 0, 4);
-                Vector3 Z6 = new Vector3(5, 0, -6);
-                float angle1 = Vector3.Angle(Z4, transform.forward);
-                float angle2 = Vector3.Angle(Z6, transform.forward);                
-                if (angle1 <= angle2)
-                {
-                    target.position = new Vector3(5, 0, 4);
-                }
-                else
-                {
-                    target.position = new Vector3(5, 0, -6);
-                }
-                distracted = false;
-                stage = "walk";
-
-
-            }            */
-
+        {            
             if(positveDirection)
             {
-                target.position = new Vector3(5, 0, 8);
+                target.position = new Vector3(positiveX, 0, positiveZ);
                 positveDirection = false;
                 stage = "walk";
                 timer = 4;
@@ -183,7 +168,7 @@ public class EnemyController : MonoBehaviour {
             }
             else
             {
-                target.position = new Vector3(5, 0, -2);
+                target.position = new Vector3(negativeX, 0, negativeZ);
                 positveDirection = true;
                 distracted = false;
                 stage = "walk";
