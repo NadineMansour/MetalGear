@@ -23,7 +23,8 @@ public class EnemyController : MonoBehaviour {
     public bool distracted;
     public Vector3 distractionPosition;
 
-    public string stage;  
+    public string stage;
+    public int health;
 
     float timer;
 
@@ -36,7 +37,8 @@ public class EnemyController : MonoBehaviour {
         positveDirection = false;
         distracted = false;
         timer = 4;
-        stage = "walk";        
+        stage = "walk";
+        health = 20;
         enemy = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");    
@@ -190,11 +192,10 @@ public class EnemyController : MonoBehaviour {
         if (angle < 60)
         {
             if (Physics.Raycast(rayPosition, direction, out hit, 10))
-            {
-                //Debug.Log(hit.collider.transform.position);            
+            {                
                 if (hit.collider.tag == "Player")
                 {
-                    Debug.Log("emsek 7aramy");
+                   // Debug.Log("emsek 7aramy");
                 }
             }
         }

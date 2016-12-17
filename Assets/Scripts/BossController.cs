@@ -11,12 +11,14 @@ public class BossController : MonoBehaviour {
 	public float speed;
 
     public bool bossMove;
-    bool canSee;
+    bool turn;
+    public bool canSee;
     string stage;    
 
 	private bool follow;
 	private Animator animator;
-	private int health;
+	public int health;
+    float timer;
 
 	// Use this for initialization
 	void Start () {
@@ -24,38 +26,46 @@ public class BossController : MonoBehaviour {
 		follow = false;
 		health = 500;
         player = GameObject.FindGameObjectWithTag("Player");
-        stage = "go to player";
+        stage = "back to position";
         boss = GetComponent<UnityEngine.AI.NavMeshAgent>();
         target.transform.position = transform.position;        
         bossMove = false;
         canSee = false;
+        turn = true;
+        timer = 3;
     }
 	
 	// Update is called once per frame
-	void Update () {
-
-        FieldOfView();
+	void Update () {        
         motionControl();
-        boss.SetDestination(target.transform.position);
-
         animator.SetBool("bossMove", bossMove);
-	}
+        animator.SetBool("turn", turn);
+        FieldOfView();
+        boss.SetDestination(target.transform.position);        
 
+    }
+    void LateUpdate()
+    {
+        motionControl();
+    }
 
-    void motionControl()
+        void motionControl()
     {
         if(canSee)
         {
-            Debug.Log("can see");
+            stage = "";            
             bossMove = true;
+            turn = false;
             target.transform.position = player.transform.position;
+            timer = 3;           
             if(Vector3.Distance(transform.position,target.transform.position) > 3)
             {                
                 target.transform.position = player.transform.position;
             }
             else
-            {
+            {                      
                 bossMove = false;
+                turn = false;
                 target.transform.position = transform.position;
             }
             transform.LookAt(player.transform.position);
@@ -63,7 +73,27 @@ public class BossController : MonoBehaviour {
         }
         else
         {
-            //bossMove = false;
+            timer -= Time.deltaTime;
+            target.transform.position = transform.position;
+            bossMove = false;
+            turn = false;          
+            if(timer <= 0)
+            {
+                stage = "back to position";
+            }
+        }
+
+        if(stage == "back to position")
+        {                       
+            bossMove = true;
+            turn = false;
+            target.transform.position = new Vector3(0,transform.position.y,0);            
+
+            if(transform.position == target.transform.position)
+            {
+                bossMove = false;
+                turn = true;
+            }
         }
 
     }
@@ -75,21 +105,19 @@ public class BossController : MonoBehaviour {
         Vector3 direction = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z) - rayPosition;
         float angle = Vector3.Angle(direction, transform.forward);
 
-        if (angle < 60)
+        if (angle < 80)
         {
-            if (Physics.Raycast(rayPosition, direction, out hit, 8))
-            {
-                //Debug.Log(hit.collider.transform.position);            
+            if (Physics.Raycast(rayPosition, direction, out hit))
+            {                                    
                 if (hit.collider.tag == "Player")
-                {
-                    canSee = true;
-                    Debug.Log("shayfo ya nadine");                    
+                {                                      
+                    canSee = true;                                       
                 }
                 else
-                {
+                {                    
                     canSee = false;
-                }                
+                }
             }
-        }
+        }                
     }
 }
