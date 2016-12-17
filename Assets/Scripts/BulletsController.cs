@@ -24,8 +24,7 @@ public class BulletsController : MonoBehaviour {
         laser.SetPosition(0,transform.position);
 
         if(Physics.Raycast(transform.position,player.transform.forward,out laserHit))
-        {
-            Debug.Log(laserHit.collider.tag);
+        {            
             float distance = Mathf.Sqrt(Mathf.Pow(transform.position.x - laserHit.transform.position.x, 2) + Mathf.Pow(transform.position.y - laserHit.transform.position.y,2));
             laser.SetPosition(1, player.transform.forward * distance + transform.position);
         }

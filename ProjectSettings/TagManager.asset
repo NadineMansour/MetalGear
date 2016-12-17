@@ -15,6 +15,7 @@ TagManager:
   - MiddleDoor
   - LeftDoor
   - Key
+  - Boss
   layers:
   - Default
   - TransparentFX
