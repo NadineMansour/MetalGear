@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 	private bool canCollectPistol, canCollectRifle, canCollectHealth, canCollectKey;
 	private bool pistolCollected, rifleCollected,keyCollected;
 	public GameObject collectablePistol, collectableRifle, collectableKey;
-	private int heatlth;
+	public int health;
 	
 	// Use this for initialization
 	void Start () {
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 		canCollectHealth = false;
 		pistolCollected = false;
 		rifleCollected = false;
-		heatlth = 100;
+		health = 100;
 	}
 	
 	// Update is called once per frame
@@ -107,8 +107,8 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyUp("h")){
 			if(canCollectHealth) {
-				heatlth += 20;
-				Debug.Log (heatlth);
+				health += 20;
+				Debug.Log (health);
 			}	
 		}
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class BulletsController : MonoBehaviour {
 
 	public GameObject bulletPrefab;
-	public GameObject player;
+	public GameObject player;    
 	public float speed;
 	public Light light;
 	private AudioSource audioSource;
@@ -24,8 +24,7 @@ public class BulletsController : MonoBehaviour {
         laser.SetPosition(0,transform.position);
 
         if(Physics.Raycast(transform.position,player.transform.forward,out laserHit))
-        {
-            Debug.Log(laserHit.collider.tag);
+        {            
             float distance = Mathf.Sqrt(Mathf.Pow(transform.position.x - laserHit.transform.position.x, 2) + Mathf.Pow(transform.position.y - laserHit.transform.position.y,2));
             laser.SetPosition(1, player.transform.forward * distance + transform.position);
         }
@@ -43,10 +42,17 @@ public class BulletsController : MonoBehaviour {
 
             if(Physics.Raycast(transform.position,player.transform.forward,out hit,10))
             {
-                Debug.Log(hit.collider.tag);
+                //Debug.Log(hit.collider.tag);
                 if(hit.collider.tag == "Enemy")
                 {
-                    Debug.Log("enemy hit");
+                    hit.transform.gameObject.GetComponent<EnemyController>().health -= 10;
+                }
+                else if(hit.collider.tag == "Boss")
+                {
+                    GameObject boss = hit.transform.gameObject;
+                    boss.GetComponent<BossController>().health -= 10;
+                   // Debug.Log("boss: " + boss.GetComponent<BossController>().health);
+                    boss.GetComponent<BossController>().canSee = true;
                 }
             }
 
