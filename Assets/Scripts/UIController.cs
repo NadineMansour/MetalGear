@@ -39,6 +39,10 @@ public class UIController : MonoBehaviour {
     void Update () {
 		barrel.transform.position = player.transform.position;
         if (Input.GetKeyUp(KeyCode.M)) {
+            if (!activeCollectablesMenu)
+            {
+                audioSource.PlayOneShot(menuAppear);
+            }
             activeCollectablesMenu = !activeCollectablesMenu;
         }
 		if (Input.GetKeyUp("left") && activeCollectablesMenu && max > 1){
