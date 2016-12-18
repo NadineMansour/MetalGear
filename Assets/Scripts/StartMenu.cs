@@ -11,10 +11,18 @@ public class StartMenu : MonoBehaviour {
     public GameObject credits;
 	public AudioClip buttonClicked;
 	public AudioSource audioSource;
+    double timer = 0.7;
+    bool exitf = false;
 
 
     void Update()
     {
+        if (exitf) {
+            timer -= Time.deltaTime;
+        }
+        if (timer <= 0) {
+        quitFunction();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("in esc");
@@ -54,10 +62,13 @@ public class StartMenu : MonoBehaviour {
     public void exit()
     {
 		audioSource.PlayOneShot (buttonClicked);
-        StartCoroutine(waiting(0.7f));
+        exitf = true;
+    }
+
+    void quitFunction() {
 
         #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;
+                                UnityEditor.EditorApplication.isPlaying = false;
         #else
                 Application.Quit();
         #endif
