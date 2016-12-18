@@ -414,7 +414,7 @@ LineRenderer:
     colorGradient:
       key0:
         serializedVersion: 2
-        rgba: 4294967295
+        rgba: 4284374783
       key1:
         serializedVersion: 2
         rgba: 4294967295
@@ -444,8 +444,8 @@ LineRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
-      atime1: 65535
+      atime0: 34310
+      atime1: 64957
       atime2: 0
       atime3: 0
       atime4: 0
@@ -1491,6 +1491,9 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   PauseAudioSource: {fileID: 0}
   gameoverMusic: {fileID: 0}
+  menuAppear: {fileID: 0}
+  selected: {fileID: 0}
+  hover: {fileID: 0}
 --- !u!4 &1034271973
 Transform:
   m_ObjectHideFlags: 0
@@ -1674,6 +1677,26 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120061201493817822, guid: 87f9cee49b5e7fa41b5147b3a48656dc,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.key0.rgba
+      value: 4284374783
+      objectReference: {fileID: 0}
+    - target: {fileID: 120061201493817822, guid: 87f9cee49b5e7fa41b5147b3a48656dc,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 120061201493817822, guid: 87f9cee49b5e7fa41b5147b3a48656dc,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.atime1
+      value: 64957
+      objectReference: {fileID: 0}
+    - target: {fileID: 120061201493817822, guid: 87f9cee49b5e7fa41b5147b3a48656dc,
+        type: 2}
+      propertyPath: m_Parameters.colorGradient.atime0
+      value: 34310
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87f9cee49b5e7fa41b5147b3a48656dc, type: 2}

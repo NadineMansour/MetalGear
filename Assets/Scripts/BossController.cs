@@ -107,7 +107,7 @@ public class BossController : MonoBehaviour {
 
         if (angle < 80)
         {
-            if (Physics.Raycast(rayPosition, direction, out hit))
+            if (Physics.Raycast(rayPosition, direction, out hit,10))
             {                                    
                 if (hit.collider.tag == "Player")
                 {                                      
